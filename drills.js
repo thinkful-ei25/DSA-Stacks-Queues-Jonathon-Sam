@@ -29,13 +29,70 @@ function firstChallenge(starTrek){
   console.log(display(starTrek));
 }
 
-function checkPalindrome(starTrek){
-  
+function is_palindrome(string){
+  string = string.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+  const stack = new Stack();
+  for(let i=0; i<string.length;i++){
+    stack.push(string[i]);
+  }
+  let reverseString = '';
+
+  for(let i = string.length-1; i>=0; i--){
+    reverseString += stack.pop();
+  }
+  if(reverseString === string){
+    return true;
+  } else {
+    return false;
+  }
 }
 
+function matchParentheses(string){
+  const stack = new Stack();
+  let output = new Stack();
+  for(let i=0; i<string.length;i++){
+    if(string[i]==='('){
+      stack.push(string[i]+i);
+    } else {
+      if(stack.isEmpty()){
+        output.push(') @ pos ' + i);
+      } else {
+        stack.pop();
+      }
+    }
+  }
+  let pos = 0;
+  while(!stack.isEmpty()){
+    let paren = stack.pop().slice(1);
+    output.push('( @ pos '+paren);
+    pos++;
+  }
+  console.log(output.display());
+  if(output.isEmpty()){
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// function isParenthesis(s){
+//   return;
+// }
+
 function main(){
-  const starTrek = new Stack();
-  //firstChallenge(starTrek);
+  const stack = new Stack();
+  //firstChallenge(stack);
+
+
+  //console.log(is_palindrome('dad'));
+  //console.log(is_palindrome('A man, a plan, a canal: Panama'));
+  //console.log(is_palindrome('1001'));
+  //console.log(is_palindrome('Tauhida'));
+
+  console.log(matchParentheses('(())'));
+  console.log(matchParentheses('((((())'));
+  console.log(matchParentheses('(()))'));
+
 
 }
 

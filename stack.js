@@ -39,6 +39,16 @@ class Stack{
     return currentNode.data;
   }
 
+  display(){
+    let output = [];
+    let currNode = this.top;
+    while(currNode!== null){
+      output.push(currNode.data);
+      currNode = currNode.next;
+    }
+    return output;
+  }
+
 }
 
 module.exports = Stack;
