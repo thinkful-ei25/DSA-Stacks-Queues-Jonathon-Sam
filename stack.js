@@ -49,6 +49,10 @@ class Stack{
     return output;
   }
 
+  peek(){
+    return this.top;
+  }
+
 }
 
 module.exports = Stack;

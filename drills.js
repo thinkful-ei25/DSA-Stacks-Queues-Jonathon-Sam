@@ -79,6 +79,49 @@ function matchParentheses(string){
 //   return;
 // }
 
+const stack = randomNumberStack(5);
+const stack2 = new Stack();
+
+
+function doubleStackEnqueue(x){
+  
+  while(stack.top){
+    stack2.push(stack.pop());
+  }
+
+  stack.push(x);
+
+  while(stack2.top){
+    stack.push(stack2.pop());
+  }
+
+}
+
+function doubleStackDequeue(){
+
+  if(stack.isEmpty()){
+    console.log('Stack is empty');
+    return;
+  }
+
+  let value = stack.peek();
+  stack.pop();
+  return value;
+}
+
+console.log(stack.display());
+doubleStackEnqueue(69);
+doubleStackDequeue();
+console.log(stack.display());
+
+function randomNumberStack(num){
+  const stack = new Stack();
+  for(let i=0;i<num;i++){
+    stack.push(Math.floor(Math.random()*100+1));
+  }
+  return stack;
+}
+
 function sortStack(stack){
   let output = new Stack();
   while(!stack.isEmpty()){
@@ -116,4 +159,4 @@ function main(){
 
 
 
-main();
+//main();
