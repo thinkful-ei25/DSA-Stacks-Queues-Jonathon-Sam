@@ -79,21 +79,39 @@ function matchParentheses(string){
 //   return;
 // }
 
-function main(){
+function sortStack(stack){
+  let output = new Stack();
+  while(!stack.isEmpty()){
+    let value = stack.pop();
+    while(!output.isEmpty() && peek(output) < value){
+      stack.push(output.pop());
+    }
+    output.push(value);
+  }
+  return output.display();
+}
+
+function randomStack(){
   const stack = new Stack();
-  //firstChallenge(stack);
+  for(let i = 0; i < 20; i++){
+    stack.push(Math.floor(Math.random() * 100 + 1));
+  }
+  return stack;
+}
 
-
-  //console.log(is_palindrome('dad'));
-  //console.log(is_palindrome('A man, a plan, a canal: Panama'));
-  //console.log(is_palindrome('1001'));
-  //console.log(is_palindrome('Tauhida'));
-
+function main(){
+  /*
+  firstChallenge(stack);
+  console.log(is_palindrome('dad'));
+  console.log(is_palindrome('A man, a plan, a canal: Panama'));
+  console.log(is_palindrome('1001'));
+  console.log(is_palindrome('Tauhida'));
   console.log(matchParentheses('(())'));
   console.log(matchParentheses('((((())'));
   console.log(matchParentheses('(()))'));
-
-
+  const stack = randomStack();
+  console.log(sortStack(stack));
+  */
 }
 
 
