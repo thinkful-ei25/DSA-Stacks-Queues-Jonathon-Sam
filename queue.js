@@ -50,6 +50,10 @@ class Queue{
     return output;
   }
 
+  peek(){
+    return this.first.value;
+  }
+
 
 }
 

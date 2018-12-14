@@ -30,7 +30,7 @@ function squareDancing(maleQueue, femaleQueue){
 }
 
 function enqueueDancers(maleQueue, femaleQueue){
-  const array = ['F Jane', 'M Frank', 'M John', 'M Sherlock', 'F Madonna', 'M David', 'M Christopher', 'F Beyonce']
+  const array = ['F Jane', 'M Frank', 'M John', 'M Sherlock', 'F Madonna', 'M David', 'M Christopher', 'F Beyonce'];
   array.forEach(name => {
     if(name.charAt(0) === 'F'){
       femaleQueue.enqueue(name.slice(2));
